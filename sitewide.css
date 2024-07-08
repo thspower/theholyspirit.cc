@@ -10,6 +10,8 @@ html {
 	font-weight: normal;
 }
 
+b { font-weight: bold; }
+
 body {
 	background-color: lightblue;
 }
@@ -74,4 +76,22 @@ a:hover {
 
 .area p {
 	margin-bottom: 5px;
+}
+
+#footer {
+	padding: 20px;
+}
+
+#footer ul {
+	list-style: none;
+}
+
+#footer ul li {
+	padding: 5px;
+}
+
+@media (max-width: 777px) {
+	#footer {
+		text-align: center;
+	}
 }

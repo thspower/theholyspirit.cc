@@ -1,0 +1,77 @@
+html {
+	font-family: sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: content-box;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+body {
+	background-color: lightblue;
+}
+
+h1 {
+	font-weight: 900;
+	font-size: 4.5em;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: darkblue;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#welcoming {
+	padding: 10px;
+	height: 80vh;
+	vertical-align: bottom;
+	position: relative;
+}
+
+#welcoming img {
+	transform: scaleX(-1);
+	max-width: 50vh;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#sitewide-nav {
+	background-color: white;
+}
+
+#sitewide-nav a {
+	display: inline-block;
+	padding: 20px;
+	font-size: 1em;
+}
+
+.sitewide-content {
+	padding: 20px;
+	background-color: white;
+}
+
+.area {
+	margin-bottom: 20px;
+}
+
+.area h2 {
+	color: darkblue;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+.area p {
+	margin-bottom: 5px;
+}

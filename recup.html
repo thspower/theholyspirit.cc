@@ -20,27 +20,177 @@
 		</nav>
 
 		<div class="sitewide-content">
-			<div class="area">
-				<h2 id="health">Our Health Services</h2>
-				<p>Our Health Services Promote The Guarantee Of Perfect Health.</p>
-				<a href="/health.html">Complete Your Assessment</a>
+			<button onclick="(function frm() { Array.from(document.querySelector('#fw-form').elements).forEach((element) => element.value = 5) })()">completeform</button>
+			<div id="flow-wizz">
+				<div id="fw-question-list">
+					<div data-q="1" class="fw-question-intention">1</div>
+					<div data-q="2" class="fw-question-intention">2</div>
+					<div data-q="3" class="fw-question-intention">3</div>
+					<div id="fw-save-intention">Save</div>
+				</div>
+				<div id="fw-question">
+					<form id="fw-form">
+						<div id="fw-question-1" class="fw-question">
+							<label for="recup-1"><b>What Needs Recuperation</b></label><br>
+							<textarea name="recup-1" id="recup-1"></textarea>
+						</div>
+						<div id="fw-question-2" class="fw-question">
+							<label for="recup-2"><b>How Will It Feel Better</b></label><br>
+							<textarea name="recup-2" id="recup-2"></textarea>
+						</div>
+						<div id="fw-question-3" class="fw-question">
+							<label for="recup-3"><b>How Do You Feel About It Now</b></label><br>
+							<input type="range" min="1" max="10" value="5" id="recup-3" name="recup-3">
+						</div>
+					</form>
+
+					<div id="fw-back-forth">
+						<div id="fw-backforth-back" class="fw-backforth-intention"><</div>
+						<div id="fw-backforth-forth" class="fw-backforth-intention">></div>
+					</div>
+				</div>
 			</div>
 
-			<div class="area">
-				<h2 id="recup">Our Recuperation Services</h2>
-				<p>Recuperation is a time-based period for recovery and reflection.</p>
-				<a href="/recup.html">Complete Your Assessment</a>
-			</div>
+			<style>
+				.fw-question {
+					display: none;
+				}
 
-			<div class="area">
-				<h2 id="vitality">Our Vitality Services</h2>
-				<p>Live Life To Its Fullest Now</p>
-				<a href="/vitality.html">Vitality Assessment</a>
-			</div>
+				#fw-question-1 {
+					display: block;
+				}
+
+				#fw-form {
+					padding: 20px;
+				}
+
+				#fw-form label {
+					display: inline-block;
+					margin-bottom: 1em;
+				}
+
+				#fw-form textarea {
+					width: 95%;
+					border: 1px solid silver;
+					border-radius: 4px;
+					height: 50px;
+				}
+			</style>
+
+			<script>
+				document.addEventListener('click', (event) => {
+					// Handle question number clicks on the left
+					if (event.target.className.match('fw-question-intention')) {
+						const questions = document.getElementsByClassName('fw-question');
+						Array.from(questions).forEach((element) => element.style.display = 'none');
+						const questionnumber = event.target.dataset.q;
+						const question = document.getElementById('fw-question-'+questionnumber);
+						question.style.display = 'block';
+					}
+
+					if (event.target.id.match('fw-save-intention')) {
+						const questions = document.getElementsByClassName('fw-question');
+						Array.from(questions).forEach((element) => element.style.display = 'none');
+
+						// show an animation
+
+						// appear a graph and results
+
+						const form = document.getElementById('fw-form');
+						const datavalues = Array.from(form.elements).reduce((data, element) => {
+							data[element.name] = element.value;
+							return data;
+						}, {});
+
+						console.log(datavalues)
+					}
+				});
+			</script>
+
+			<style>
+				#flow-wizz {
+					border: 1px solid silver;
+					width: 80%;
+					max-width: 500px;
+					display: flex;
+				}
+
+				/* Question List, left side */
+				#fw-question-list, #fw-question {
+					display: inline-block;
+				}
+
+				#fw-question-list {
+					border-right: 1px solid silver;
+					width: 5em;
+				}
+
+				.fw-question-intention {
+					font-size: 3em;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.fw-question-intention:hover {
+					background-color: #fcfcfc;
+				}
+
+				.fw-question-intention:active {
+					background-color: #f7f7f7;
+				}
+
+				#fw-save-intention {
+					background-color: silver;
+					padding: 10px;
+					text-align: center;
+				}
+
+				#fw-save-intention:hover {
+					filter: brightness(.95);
+					cursor: pointer;
+				}
+
+				#fw-save-intention:active {
+					filter: brightness(.85);
+				}
+
+				/* Active question, right side */
+				#fw-question {
+					width: calc(100% - 5em);
+					position: relative;
+				}
+
+				#fw-back-forth {
+					display: flex;
+					width: 100%;
+					position: absolute;
+					bottom: 0;
+				}
+
+				.fw-backforth-intention {
+					width: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 10px;
+				}
+				
+				.fw-backforth-intention:hover {
+					background-color: #fafafa;
+					cursor: pointer;
+				}
+			</style>
 		</div>
 
-		<div class="footer">
-			Healing Services C 2024
+		<div id="footer">
+			<ul>
+				<li><b>Healing Services</b></li>
+				<li><a href="/health.html">Health</a></li>
+				<li><a href="/recup.html">Recuperation</a></li>
+				<li><a href="/vitality.html">Vitality</a></li>
+				<li>Healing Services C 2024</li>
+			</ul>
 		</div>
 	</body>
 </html>

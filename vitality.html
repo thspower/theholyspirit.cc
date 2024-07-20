@@ -20,27 +20,240 @@
 		</nav>
 
 		<div class="sitewide-content">
-			<div class="area">
-				<h2 id="health">Our Health Services</h2>
-				<p>Our Health Services Promote The Guarantee Of Perfect Health.</p>
-				<a href="/health.html">Complete Your Assessment</a>
+			<h2>Engagement for Vitality</h2>
+
+			<p id="prayer-for-vitality"></p>
+
+			<style>
+				#prayer-for-vitality {
+					width: 80%;
+					max-width: 400px;
+					text-align: center;
+					padding: 20px;
+					border: 1px solid gray;
+					margin-bottom: 2em;
+				}
+
+				#prayer-for-vitality #prayer-title {
+					font-weight: bold;
+					font-size: 1.05em;
+				}
+
+				#prayer-for-vitality p:not(:last-of-type) {
+					margin-bottom: 1em;
+				}
+
+				#second-content {
+					margin-bottom: 2em;
+				}
+
+				#timescript {
+					font-weight: light;
+					font-style: italic;
+					font-size: .8em;
+				}
+			</style>
+
+			<div id="second-content">
+				<h3>How to use Service for Vitality</h3>
+				<p>Every day check Service for Vitality to align and energize creational frequency.</p>
+				<p>The day's topic should be said aloud and with vigor. Vitality is Light.</p>
 			</div>
 
-			<div class="area">
-				<h2 id="recup">Our Recuperation Services</h2>
-				<p>Recuperation is a time-based period for recovery and reflection.</p>
-				<a href="/recup.html">Complete Your Assessment</a>
-			</div>
+			<div id="timescript"></div>
+			
+			<script>
+				const prayers = [{
+					"slug": "lesson-201",
+					"title": "Review of 181: I trust my brothers, who are one with me.",
+					"section_type": "lesson",
+					"number": "201",
+					"sort_order": 208,
+					"content": "<p>I am not a body. I am free, for I am still as God created me.</p>\n<p>(Lesson 181) I trust my brothers, who are one with me.</p>\n<p>No-one but is my brother. I am blessed\nwith oneness with the universe and God,\nmy Father, One Creator of the whole\nthat is my Self, forever One with me.</p>"
+				},
+				{
+					"slug": "lesson-202",
+					"title": "Review of 182: I will be still a moment and go home.",
+					"section_type": "lesson",
+					"number": "202",
+					"sort_order": 209,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 182) I will be still a moment and go home.</p>\n<p>Why would I choose to stay an instant more\nwhere I do not belong, when God Himself\nhas given me His Voice to call me home?</p>"
+				},
+				{
+					"slug": "lesson-203",
+					"title": "Review of 183: I call upon God’s Name and my own.",
+					"section_type": "lesson",
+					"number": "203",
+					"sort_order": 210,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 183) I call upon God’s Name and on my own.</p>\n<p>The Name of God is my deliverance\nfrom every thought of evil and of sin,\nbecause it is my own as well as His.</p>"
+				},
+				{
+					"slug": "lesson-204",
+					"title": "Review of 184: The Name of God is my inheritance.",
+					"section_type": "lesson",
+					"number": "204",
+					"sort_order": 211,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 184) The Name of God is my inheritance.</p>\n<p>God’s Name reminds me that I am His Son,\nnot slave to time, unbound by laws which rule\nthe world of sick illusions, free in God,\nforever and forever one with Him.</p>"
+				},
+				{
+					"slug": "lesson-205",
+					"title": "Review of 185: I want the peace of God.",
+					"section_type": "lesson",
+					"number": "205",
+					"sort_order": 212,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 185) I want the peace of God.</p>\n<p>The peace of God is everything I want.\nThe peace of God is my one goal; the aim\nof all my living here, the end I seek,\nmy purpose and my function and my life\nwhile I abide where I am not at home.</p>"
+				},
+				{
+					"slug": "lesson-206",
+					"title": "Review of 186: Salvation of the world depends on me.",
+					"section_type": "lesson",
+					"number": "206",
+					"sort_order": 213,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 186) Salvation of the world depends on me.</p>\n<p>I am entrusted with the gifts of God,\nbecause I am His Son. And I would give\nHis gifts where He intended them to be.</p>"
+				},
+				{
+					"slug": "lesson-207",
+					"title": "Review of 187: I bless the world because I bless myself.",
+					"section_type": "lesson",
+					"number": "207",
+					"sort_order": 214,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 187) I bless the world because I bless myself.</p>\n<p>God’s blessing shines upon me from within\nmy heart, where He abides. I need but turn\nto Him, and every sorrow melts away\nas I accept His boundless Love for me.</p>"
+				},
+				{
+					"slug": "lesson-208",
+					"title": "Review of 188: The peace of God is shining in me now.",
+					"section_type": "lesson",
+					"number": "208",
+					"sort_order": 215,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 188) The peace of God is shining in me now.</p>\n<p>I will be still, and let the earth be still\nalong with me. And in that stillness, we\nwill find the peace of God. It is within\nmy heart, which witnesses to God Himself.</p>"
+				},
+				{
+					"slug": "lesson-209",
+					"title": "Review of 189: I feel the love of God within me now.",
+					"section_type": "lesson",
+					"number": "209",
+					"sort_order": 216,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 189) I feel the Love of God within me now.</p>\n<p>The Love of God is what created me.\nThe Love of God is everything I am.\nThe Love of God proclaimed me as His Son.\nThe Love of God within me sets me free.</p>"
+				},
+				{
+					"slug": "lesson-210",
+					"title": "Review of 190: I choose the joy of God instead of pain.",
+					"section_type": "lesson",
+					"number": "210",
+					"sort_order": 217,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 190) I choose the joy of God instead of pain.</p>\n<p>Pain is my own idea. It is not\na thought of God, but one I thought apart\nfrom Him and from His Will. His Will is joy\nand only joy for His beloved Son.\nAnd that I choose instead of what I made.</p>"
+				},
+				{
+					"slug": "lesson-211",
+					"title": "Review of 191: I am the holy Son of God Himself",
+					"section_type": "lesson",
+					"number": "211",
+					"sort_order": 218,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 191) I am the holy Son of God Himself.</p>\n<p>In silence and in true humility\nI seek God’s glory, to behold it in\nthe Son whom He created as my Self.</p>"
+				},
+				{
+					"slug": "lesson-212",
+					"title": "Review of 192: I have a function God would have me fill.",
+					"section_type": "lesson",
+					"number": "212",
+					"sort_order": 219,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 192) I have a function God would have me fill.</p>\n<p>I seek the function that would set me free\nfrom all the vain illusions of the world.\nOnly the function God has given me\ncan offer freedom. Only this I seek,\nand only this will I accept as mine.</p>"
+				},
+				{
+					"slug": "lesson-213",
+					"title": "Review of 193: All things are lessons God would have me learn.",
+					"section_type": "lesson",
+					"number": "213",
+					"sort_order": 220,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 193) All things are lessons God would have me learn.</p>\n<p>A lesson is a miracle which God\noffers to me, in place of thoughts I made\nthat hurt me. What I learn of Him becomes\nthe way I am set free. And so I choose\nto learn His lessons, and forget my own.</p>"
+				},
+				{
+					"slug": "lesson-214",
+					"title": "Review of 194: I place the future in the Hands of God.",
+					"section_type": "lesson",
+					"number": "214",
+					"sort_order": 221,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 194) I place the future in the hands of God.</p>\n<p>The past is gone; the future is not yet.\nNow am I freed from both. For what God gives\ncan only be for good. And I accept\nbut what He gives as what belongs to me.</p>"
+				},
+				{
+					"slug": "lesson-215",
+					"title": "Review of 195: Love is the way I walk in gratitude.",
+					"section_type": "lesson",
+					"number": "215",
+					"sort_order": 222,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 195) Love is the way I walk in gratitude.</p>\n<p>The Holy Spirit is my only Guide.\nHe walks with me in love. And I give thanks\nto Him for showing me the way to go.</p>"
+				},
+				{
+					"slug": "lesson-216",
+					"title": "Review of 196: It can be but myself I crucify.",
+					"section_type": "lesson",
+					"number": "216",
+					"sort_order": 223,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 196) It can be but myself I crucify.</p>\n<p>All that I do I do unto myself.\nIf I attack, I suffer. But if I\nforgive, salvation will be given me.</p>"
+				},
+				{
+					"slug": "lesson-217",
+					"title": "Review of 197: It can be but my gratitude I earn.",
+					"section_type": "lesson",
+					"number": "217",
+					"sort_order": 224,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 197) It can be but my gratitude I earn.</p>\n<p>Who should give thanks for my salvation but\nmyself? And how but through salvation can\nI find the Self to Whom my thanks are due?</p>"
+				},
+				{
+					"slug": "lesson-218",
+					"title": "Review of 198: Only my condemnation injures me.",
+					"section_type": "lesson",
+					"number": "218",
+					"sort_order": 225,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 198) Only my condemnation injures me.</p>\n<p>My condemnation keeps my vision dark,\nand through my sightless eyes I cannot see\nthe vision of my glory. Yet today\nI can behold this glory, and be glad.</p>"
+				},
+				{
+					"slug": "lesson-219",
+					"title": "Review of 199: I am not a body. I am free.",
+					"section_type": "lesson",
+					"number": "219",
+					"sort_order": 226,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 199) I am not a body. I am free.</p>\n<p>I am God’s Son. Be still, my mind, and think\na moment upon this. And then return\nto earth without confusion as to what\nmy Father loves forever as His Son.</p>"
+				},
+				{
+					"slug": "lesson-220",
+					"title": "Review of 200: There is no peace except the peace of God.",
+					"section_type": "lesson",
+					"number": "220",
+					"sort_order": 227,
+					"content": "<p>I am not a body. I am free. For I am still as God created me.</p>\n<p>(Lesson 200) There is no peace except the peace of God.</p>\n<p>Let me not wander from the way of peace,\nfor I am lost on other roads than this.\nBut let me follow Him Who leads me home,\nand peace is certain as the Love of God.</p>"
+				}];
 
-			<div class="area">
-				<h2 id="vitality">Our Vitality Services</h2>
-				<p>Live Life To Its Fullest Now</p>
-				<a href="/vitality.html">Vitality Assessment</a>
-			</div>
+				var now = new Date();
+				var start = new Date(now.getFullYear(), 0, 0);
+				var diff = now - start;
+				var oneDay = 1000 * 60 * 60 * 24;
+				var today = Math.floor(diff / oneDay);
+				
+				const todaysnumber = today % prayers.length;
+				const prayerforvitality = prayers[todaysnumber];
+
+				const { title, content } = prayerforvitality;
+				let html = '';
+				html += '<p id="prayer-title"><b>' + title.split(': ')[1] + '</b></p>';
+				html += content.split(/\(.+\)/).join('');
+
+				const placement = document.getElementById('prayer-for-vitality');
+				placement.innerHTML = html;
+
+				const timescript = 'This prayer was generated at ' + now + '. Get a new prayer daily.';
+				document.getElementById('timescript').innerHTML = timescript;
+			</script>
 		</div>
 
-		<div class="footer">
-			Healing Services C 2024
+		<div id="footer">
+			<ul>
+				<li><b>Healing Services</b></li>
+				<li><a href="/health.html">Health</a></li>
+				<li><a href="/recup.html">Recuperation</a></li>
+				<li><a href="/vitality.html">Vitality</a></li>
+				<li>Healing Services c 2024</li>
+			</ul>
 		</div>
 	</body>
 </html>

@@ -57,8 +57,8 @@
 					</div>
 
 					<div id="fw-back-forth">
-						<div id="fw-backforth-back" class="fw-backforth-intention"><</div>
-						<div id="fw-backforth-forth" class="fw-backforth-intention">></div>
+						<div id="fw-backforth-back" class="fw-backforth-intention" data-direction="back"><</div>
+						<div id="fw-backforth-forth" class="fw-backforth-intention" data-direction="fore">></div>
 					</div>
 				</div>
 			</div>
@@ -204,6 +204,31 @@
 						printWindow.document.write('</body></html>');
 						printWindow.document.close();
 						printWindow.print();
+					}
+				
+					// Handle Arrow Navigation
+					if (event.target.className.match('fw-backforth-intention')) {
+						document.getElementById('fw-results').style.display = 'none';
+						const questions = document.getElementsByClassName('fw-question');
+						let activeIndex;
+						Array.from(questions).forEach((element, i) => {
+							if (window.getComputedStyle(element).display !== 'none') {
+								activeIndex = i;
+							}
+							element.style.display = 'none';
+						});
+
+						const direction = event.target.dataset.direction;
+						let newIndex = direction === 'back' ? activeIndex - 1 : activeIndex + 1;
+						if (!newIndex) newIndex = 0;
+						if (newIndex < 0) newIndex = 0;
+						if (newIndex > 2) {
+							document.getElementById('fw-save-intention').click();
+							return;
+						}
+
+						document.getElementById('fw-form').style.display = 'block';
+						Array.from(questions)[newIndex].style.display = 'block';
 					}
 				});
 			</script>

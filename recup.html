@@ -130,6 +130,7 @@
 			</style>
 
 			<script>
+				let processing = false;
 				document.addEventListener('click', (event) => {
 					// Handle question number clicks on the left
 					if (event.target.className.match('fw-question-intention')) {
@@ -144,6 +145,7 @@
 						question.style.display = 'block';
 					}
 
+					// Handle Save Intent
 					if (event.target.id.match('fw-save-intention')) {
 						const form = document.getElementById('fw-form');
 						const datavalues = Array.from(form.elements).reduce((data, element) => {
@@ -160,8 +162,10 @@
 						// show an animation
 						const loading = document.getElementById('fw-loading');
 						loading.style.display = 'block';
+						processing = true;
 						setTimeout(() => {
 							loading.style.display = 'none';
+							processing = false;
 						}, 5000);
 
 						// appear a graph and results
@@ -208,7 +212,8 @@
 				
 					// Handle Arrow Navigation
 					if (event.target.className.match('fw-backforth-intention')) {
-						document.getElementById('fw-results').style.display = 'none';
+						if (processing) return;
+
 						const questions = document.getElementsByClassName('fw-question');
 						let activeIndex;
 						Array.from(questions).forEach((element, i) => {
@@ -217,6 +222,8 @@
 							}
 							element.style.display = 'none';
 						});
+
+						document.getElementById('fw-results').style.display = 'none';
 
 						const direction = event.target.dataset.direction;
 						let newIndex = direction === 'back' ? activeIndex - 1 : activeIndex + 1;

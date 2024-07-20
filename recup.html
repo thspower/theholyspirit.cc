@@ -27,7 +27,7 @@
 
 		<div class="sitewide-content">
 			<h2>Assessment For Recuperation</h2>
-			<p class="copy-content">The Assessment For Recuperation measures one's progress in the recuperation process. After answering three questions, the taker will receive results with the option to print.</p>
+			<p class="copy-content">The Assessment For Recuperation measures one's progress in the recuperation process. After answering three questions, you will receive results with the option to print.</p>
 			<!-- <button onclick="(function frm() { Array.from(document.querySelector('#fw-form').elements).forEach((element) => element.value = 5) })()">completeform</button> -->
 			<div id="flow-wizz">
 				<div id="fw-question-list">
@@ -61,7 +61,7 @@
 							<div id="results-graph-indicator"></div>
 						</div>
 						<p id="fw-use"><i>Check the results again later to track recuperation progress.</i></p>
-						<p id="fw-print"><a>Print Results</a></p>
+						<p><a id="fw-print">Print Results</a></p>
 					</div>
 
 					<div id="fw-back-forth">
@@ -128,6 +128,7 @@
 				}
 
 				#fw-print {
+					display: inline-block;
 					margin-bottom: 20px;
 				}
 
@@ -195,7 +196,7 @@
 						var divContents = document.getElementById('fw-results').innerHTML;
 						const style = `<style>#fw-results-graph {
 							height: 30px;
-							width: 100%;
+							width: 300px;
 							background: linear-gradient(90deg, #f7f7f7, #add9e6);
 							position: relative;
 						}

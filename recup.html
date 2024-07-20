@@ -44,6 +44,17 @@
 						</div>
 					</form>
 
+					<div id="fw-loading">
+						<h3>Now loading your results</h3>
+					</div>
+					<div id="fw-results">
+						<div id="fw-results-words"></div>
+						<div id="fw-results-graph">
+							<div id="results-graph-indicator"></div>
+						</div>
+						<p id="fw-use"><i>Check the results again later to track recuperation progress.</i></p>
+					</div>
+
 					<div id="fw-back-forth">
 						<div id="fw-backforth-back" class="fw-backforth-intention"><</div>
 						<div id="fw-backforth-forth" class="fw-backforth-intention">></div>
@@ -75,6 +86,42 @@
 					border-radius: 4px;
 					height: 50px;
 				}
+
+				#fw-loading {
+					display: none;
+					color: white;
+					animation: blink 5s;
+					padding: 20px;
+				}
+
+				#fw-results {
+					display: none;
+					padding: 20px;
+				}
+
+				#fw-results-graph {
+					height: 30px;
+					width: 100%;
+					background: linear-gradient(90deg, #f7f7f7, #add9e6);
+					position: relative;
+				}
+
+				#results-graph-indicator {
+					height: 100%;
+					width: 10px;
+					background-color: #ffcc00;
+					position: absolute;
+				}
+
+				#fw-use {
+					font-size: .9em;
+					margin-top: auto;
+				}
+
+				@keyframes blink {
+					0% { color: white; }
+					50% { color: black; }
+				}
 			</style>
 
 			<script>
@@ -83,26 +130,47 @@
 					if (event.target.className.match('fw-question-intention')) {
 						const questions = document.getElementsByClassName('fw-question');
 						Array.from(questions).forEach((element) => element.style.display = 'none');
+						document.getElementById('fw-results').style.display = 'none';
+
+						document.getElementById('fw-form').style.display = 'block';
+
 						const questionnumber = event.target.dataset.q;
 						const question = document.getElementById('fw-question-'+questionnumber);
 						question.style.display = 'block';
 					}
 
 					if (event.target.id.match('fw-save-intention')) {
-						const questions = document.getElementsByClassName('fw-question');
-						Array.from(questions).forEach((element) => element.style.display = 'none');
-
-						// show an animation
-
-						// appear a graph and results
-
 						const form = document.getElementById('fw-form');
 						const datavalues = Array.from(form.elements).reduce((data, element) => {
 							data[element.name] = element.value;
 							return data;
 						}, {});
 
-						console.log(datavalues)
+						const questions = document.getElementsByClassName('fw-question');
+						Array.from(questions).forEach((element) => element.style.display = 'none');
+						document.getElementById('fw-results').style.display = 'none';
+
+						form.style.display = 'none';
+
+						// show an animation
+						const loading = document.getElementById('fw-loading');
+						loading.style.display = 'block';
+						setTimeout(() => {
+							loading.style.display = 'none';
+						}, 5000);
+
+						// appear a graph and results
+						setTimeout(() => {
+							const result1 = datavalues['recup-1'] + ' is the topic of recuperation.';
+							const result2 = 'It is considered recuperated when ' + datavalues['recup-2'];
+							const recup3percent = (datavalues['recup-3'] / 10) * 100;
+							const result3 = 'You are feeling ' + (recup3percent) + '% this time.';
+							const results = `<p>${result1}</p><p>${result2}</p><p>${result3}</p>`
+
+							document.getElementById('results-graph-indicator').style.left = recup3percent + '%';
+							document.getElementById('fw-results-words').innerHTML = results;
+							document.getElementById('fw-results').style.display = 'block';
+						}, 5000);
 					}
 				});
 			</script>

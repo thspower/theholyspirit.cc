@@ -53,6 +53,7 @@
 							<div id="results-graph-indicator"></div>
 						</div>
 						<p id="fw-use"><i>Check the results again later to track recuperation progress.</i></p>
+						<p id="fw-print"><a>Print Results</a></p>
 					</div>
 
 					<div id="fw-back-forth">
@@ -115,7 +116,11 @@
 
 				#fw-use {
 					font-size: .9em;
-					margin-top: auto;
+					margin-top: 20px;
+				}
+
+				#fw-print {
+					margin-bottom: 20px;
 				}
 
 				@keyframes blink {
@@ -172,6 +177,34 @@
 							document.getElementById('fw-results').style.display = 'block';
 						}, 5000);
 					}
+
+					// Handle Print Results
+					if (event.target.id.match('fw-print')) {
+						var divContents = document.getElementById('fw-results').innerHTML;
+						const style = `<style>#fw-results-graph {
+							height: 30px;
+							width: 100%;
+							background: linear-gradient(90deg, #f7f7f7, #add9e6);
+							position: relative;
+						}
+							body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+						#results-graph-indicator {
+							height: 100%;
+							width: 10px;
+							background-color: #ffcc00;
+							position: absolute;
+						}</style>`;
+
+						var printWindow = window.open('', '', 'height=400,width=800');
+						printWindow.document.write('<html><head><title>Recuperation Results</title>');
+						printWindow.document.write('</head><body>');
+						printWindow.document.write(divContents);
+						printWindow.document.write(style);
+						printWindow.document.write('</body></html>');
+						printWindow.document.close();
+						printWindow.print();
+					}
 				});
 			</script>
 
@@ -201,7 +234,7 @@
 				}
 
 				.fw-question-intention:hover {
-					background-color: #fcfcfc;
+					background-color: #fafafa;
 				}
 
 				.fw-question-intention:active {

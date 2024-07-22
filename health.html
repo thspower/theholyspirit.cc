@@ -30,17 +30,206 @@
 				.sitewide-content p {
 					margin-bottom: 20px;
 				}
+
+				.layout {
+					display: flex;
+					overflow-x: auto;
+				}
+
+				.layout::webkit-scrollbar {
+					display: none;
+				}
+
+				.layout {
+					-ms-overflow-style: none;
+					scrollbar-width: none;
+				}
+
+				.layout-half {
+					flex: 1;
+					min-width: 300px;
+				}
+
+				#health-form-gadget {
+					background-color: #eee;
+					border-radius: 5px;
+					border: 1px solid black;
+					margin-left: auto;
+					padding: 20px;
+				}
 			</style>
 			<h2>Health</h2>
-			<div class="quote-box">
-				Perfect Health Is Guaranteed By Laws.
+			<div class="layout">
+				<div class="layout-half">
+					<div class="quote-box">
+						Perfect Health Is Guaranteed By Laws.
+					</div>
+					<p>The Laws of Perfect Health are Orthogonal to material.</p>
+					<p>Be Well and Recognize.</p>
+					<img src="flower-gif.gif" alt="flower in a hat" width="200px">
+				</div>
+	
+				<div class="layout-half">
+					<style>
+						.email-element, button, input { 
+							position:relative; 
+							margin-bottom:20px; 
+						}
+
+						#health-form-gadget button {
+							padding: 20px;
+							width: 100%;
+							box-sizing: border-box;
+							background-color: #add9e6;
+						}
+
+						#health-form-gadget input[type=checkbox] {
+							height: 1em;
+							width: 1em;
+						}
+
+						.email-element-input, .floating-select {
+							padding:4px 4px;
+							display:block;
+							width:100%;
+							min-height:30px;
+							background-color: transparent;
+							border:none;
+							border-bottom:1px solid silver;
+						}
+
+						.email-element-input:focus, .floating-select:focus {
+							outline:none;
+							border-bottom:2px solid silver; 
+						}
+
+						.email-element-label {
+							color:#999; 
+							position:absolute;
+							pointer-events:none;
+							top:5px;
+							transition:0.2s ease all; 
+							-moz-transition:0.2s ease all; 
+							-webkit-transition:0.2s ease all;
+							font-size: .9em;
+						}
+
+						.email-element-input:focus ~ label, .email-element-input:not(:placeholder-shown) ~ label {
+							top:-8px;
+							font-size:10px;
+							color:silver;
+						}
+
+						.floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
+							top:-18px;
+							color:silver;
+						}
+
+						.email-element-input:focus ~ .bar:before, .email-element-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after {
+							width:50%;
+						}
+
+						.floating-textarea {
+							min-height: 30px;
+							max-height: 260px; 
+							overflow:hidden;
+							overflow-x: hidden; 
+						}
+
+						#hf-loading {
+							display: none;
+							animation: blink 5s;
+							padding: 20px;
+						}
+						@keyframes blink {
+							0% { color: white; }
+							50% { color: black; }
+						}
+					</style>
+
+					<div id="health-form-gadget">
+						<h3>Health Assessment</h3>
+						<div id="hf-loading">
+							<h3>Now loading your results</h3>
+						</div>
+						<form id="health-form">
+							<div id="hf-question-1" class="hf-question email-element">
+								<textarea name="health-1" id="health-1" class="email-element-input email-element-textarea" placeholder=" "></textarea>
+								<label for="health-1" class="email-element-label"><b>What are your health considerations?</b></label><br>
+							</div>
+
+							<div id="hf-question-2" class="hf-question email-element">
+								<textarea name="health-2" id="health-2" class="email-element-input email-element-textarea" placeholder=" "></textarea>
+								<label for="health-2" class="email-element-label"><b>What is your temperature?</b></label><br>
+							</div>
+
+							<div id="hf-question-3" class="hf-question email-element">
+								<textarea name="health-3" id="health-3" class="email-element-input email-element-textarea" placeholder=" "></textarea>
+								<label for="health-3" class="email-element-label"><b>Provide Your Email</b></label><br>
+							</div>
+
+							<div id="hf-question-4" class="hf-question">
+								<p><i>Check the box to enroll in Health Resources.</i></p>
+								<label for="health-4">Enroll</label>
+								<input type="checkbox" name="health-4" id="health-4">
+							</div>
+							
+							<button id="hf-save-intention">Process This Assessment</button>
+						</form>
+					</div>
+
+					<script>
+						let processing = false;
+						document.addEventListener('click', (event) => {
+							// Handle question number clicks on the left
+							if (event.target.className.match('fw-question-intention')) {
+							}
+		
+							// Handle Save Intent
+							if (event.target.id.match('hf-save-intention')) {
+								event.preventDefault();
+								const form = document.getElementById('health-form');
+								const datavalues = Array.from(form.elements).reduce((data, element) => {
+									data[element.name] = element.value;
+									return data;
+								}, {});
+		
+								form.style.display = 'none';
+		
+								// show an animation
+								const loading = document.getElementById('hf-loading');
+								loading.style.display = 'block';
+								processing = true;
+								setTimeout(() => {
+									loading.style.display = 'none';
+									processing = false;
+								}, 5000);
+		
+								// appear a graph and results
+								setTimeout(() => {
+									const html = `<p>Your results have been sent.</p>`
+									+ `<p>If requested, we will respond to the email on file.</p>`
+									+ `<p><b>Be Blessed For Health</b></p>`;
+
+									const results = document.createElement('div');
+									results.innerHTML = html;
+									document.getElementById('health-form-gadget').appendChild(results);
+								}, 5000);
+
+								console.log(datavalues)
+							}
+		
+							// Handle Print Results
+							if (event.target.id.match('fw-print')) {
+							}
+						
+							// Handle Arrow Navigation
+							if (event.target.className.match('fw-backforth-intention')) {
+							}
+						});
+					</script>
+				</div>
 			</div>
-
-			<p>The Laws of Perfect Health are Orthogonal to material.</p>
-
-			<p>Be Well and Recognize.</p>
-
-			<img src="flower-gif.gif" alt="flower in a hat" width="200px">
 		</div>
 
 		<div id="footer">

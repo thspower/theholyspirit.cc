@@ -216,7 +216,19 @@
 									document.getElementById('health-form-gadget').appendChild(results);
 								}, 5000);
 
-								console.log(datavalues)
+								//add some function to process the form
+								const postbody = {
+									form_id: 'theholyspiritcc.health',
+									response: datavalues
+								};
+								fetch('https://alexa-anderson.com/energyforms', {
+									method: "POST",
+									mode: "cors",
+									headers: {
+										"Content-Type": "application/json"
+									},
+									body: JSON.stringify(postbody)
+								}).then(console.log).catch(console.error)
 							}
 		
 							// Handle Print Results

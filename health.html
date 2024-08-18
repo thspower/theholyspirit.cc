@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-HDMXKX8CBQ"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-HDMXKX8CBQ');
+		</script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" href="sitewide.css">
@@ -218,7 +227,7 @@
 
 								//add some function to process the form
 								const postbody = {
-									form_id: 'theholyspiritcc.health',
+									form: 'theholyspiritcc.health',
 									response: datavalues
 								};
 								fetch('https://alexa-anderson.com/energyforms', {

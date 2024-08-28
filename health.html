@@ -189,6 +189,9 @@
 
 					<script>
 						let processing = false;
+						const z = window.location.host.match('theholyspirit.cc');
+
+						const REMOTE = z ? 'https://alexa-anderson.com' : 'http://localhost:3002';
 						document.addEventListener('click', (event) => {
 							// Handle question number clicks on the left
 							if (event.target.className.match('fw-question-intention')) {
@@ -230,7 +233,7 @@
 									form: 'theholyspiritcc.health',
 									response: datavalues
 								};
-								fetch('https://alexa-anderson.com/energyforms', {
+								fetch(`${REMOTE}/energyforms`, {
 									method: "POST",
 									mode: "cors",
 									headers: {
